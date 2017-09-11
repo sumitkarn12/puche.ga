@@ -89,3 +89,5 @@ document.onreadystatechange = function() {
 		console.log( document.readyState );
 	}
 };
+
+onmessage = console.log
