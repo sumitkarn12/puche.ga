@@ -1,0 +1,22 @@
+{
+	"name": "puche.ga | कुछो पूछना है",
+	"short_name": "कुछो पूछना है",
+	"orientation": "portrait",
+	"description": "जो पूछना है पूछ लीजिये एकदम से ",
+	"theme_color": "#159b3b",
+	"background_color": "#159b3b",
+	"display": "standalone",
+	"start_url": "/?launcher=true",
+	"icons": [
+		{
+			"src": "/images/android-chrome-192x192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "/images/android-chrome-512x512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	]
+}
