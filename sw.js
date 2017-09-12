@@ -1,7 +1,7 @@
 
 // Mon Sep 11 23:56:03 2017
 
-const CACHE_VERSION = "v3";
+const CACHE_VERSION = "v1";
 const CACHE_FILES = [
 	"/",
 	"/js/index.js",
@@ -30,6 +30,11 @@ self.addEventListener( "install", function(event) {
 			return cache.addAll( CACHE_FILES );
 		}).then(function() {
 			return self.skipWaiting();
+		}).catch(function( res ) {
+			console.log( "Service Worker: ", res );
+			return new Promise(( resolve )=>{
+				resolve("Added to cache");
+			});
 		})
 	);
 });
@@ -55,22 +60,20 @@ self.addEventListener('fetch', function(event) {
 			}
 		})
 	);
-	if( event.request.url.startsWith( "https://fonts" ) || event.request.url.startsWith( "https://source.unsplash.com" ) ) {
+	if( event.request.url.startsWith( "https://source.unsplash.com" ) ) {
 		event.waitUntil( updateAndCache( event.request ) );
 	}
 });
 function updateAndCache( request ) {
 	return new Promise( ( resolve, reject )=>{
-		let timer = setTimeout( reject, (60*1000) );
 		caches.open( CACHE_VERSION ).then(function( cache ) {
 			fetch( request ).then(function( response ) {
-				clearTimeout( timer );
 				if( response.ok )
 					cache.put( request, response ).then(function() {
 						resolve(`${request.url} Added to cache` );
 					}, reject);
 				else {
-					reject(`Couldn't fetch ${request.url}`);
+					resolve(`Couldn't fetch ${request.url}`);
 				}
 			}).catch( reject );
 		});

@@ -82,11 +82,8 @@ let url = `https://source.unsplash.com/collection/148041/${window.innerWidth}x${
 if (navigator.onLine) $(".backpanel").css({ "background-image": `url(${url})` });
 
 document.onreadystatechange = function() {
-	console.log( document.readyState );
 	if( document.readyState == "complete" ) {
 		$(".splash").hide();
 		$(".app").show();
 	}
 };
-
-onmessage = console.log
