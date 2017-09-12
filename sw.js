@@ -1,7 +1,7 @@
 
 // Mon Sep 11 23:56:03 2017
 
-const CACHE_VERSION = "v2";
+const CACHE_VERSION = "v3";
 const CACHE_FILES = [
 	"/",
 	"/js/index.js",

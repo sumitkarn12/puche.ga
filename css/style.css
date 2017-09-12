@@ -3,6 +3,7 @@ body {
   background-color: #000;
 }
 .backpanel{
+  background-image: url(/images/default-background.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

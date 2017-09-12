@@ -79,14 +79,13 @@ let app = new Vue({
 });
 
 let url = `https://source.unsplash.com/collection/148041/${window.innerWidth}x${window.innerHeight}`;
-$(".backpanel").css({ "background-image": `url(${url})` });
+if (navigator.onLine) $(".backpanel").css({ "background-image": `url(${url})` });
 
 document.onreadystatechange = function() {
+	console.log( document.readyState );
 	if( document.readyState == "complete" ) {
 		$(".splash").hide();
 		$(".app").show();
-	} else {
-		console.log( document.readyState );
 	}
 };
 
