@@ -1,7 +1,7 @@
 
 // Mon Sep 11 23:56:03 2017
 
-const CACHE_VERSION = "v1";
+const CACHE_VERSION = "v2";
 const CACHE_FILES = [
 	"/",
 	"/js/index.js",
@@ -14,11 +14,10 @@ const CACHE_FILES = [
 	"/images/favicon-194x194.png",
 	"/images/android-chrome-192x192.png",
 	"/images/favicon-16x16.png",
-	"/manifest.json",
 	"/images/safari-pinned-tab.svg",
-	"/images/default-background.jpg",
 	"/images/mstile-144x144.png",
 	"/favicon.ico",
+	"/manifest.json",
 	"https://code.jquery.com/jquery-1.12.4.min.js",
 	"https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js",
 	'https://fonts.googleapis.com/icon?family=Material+Icons'
