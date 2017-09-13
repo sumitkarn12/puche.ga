@@ -4,7 +4,7 @@
     "orientation": "portrait",
     "description": "जो पूछना है पूछ लीजिये एकदम से ",
     "display": "standalone",
-    "start_url": "/?launcher=true",
+    "start_url": "/index.html?launcher=true",
     "theme_color": "#c2ade6",
     "background_color": "#c2ade6",
     "icons": [

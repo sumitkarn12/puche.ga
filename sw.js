@@ -1,7 +1,7 @@
 
-// Tue Sep 12 12:40:21 2017
+// Wed Sep 13 08:12:46 2017
 
-const CACHE_VERSION = "v2";
+const CACHE_VERSION = "v3";
 const CACHE_FILES = [
 	"/",
 	"/index.html",
