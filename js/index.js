@@ -15,6 +15,9 @@ String.prototype.hashCode = function() {
 	return hash;
 };
 
+const db = new Dexie("question-database");
+db.version(1).stores({ question: 'objectId, message, user, createdAt, updatedAt, pin' });
+
 const app = new Vue({
 	el: ".app",
 	data: {
@@ -31,6 +34,7 @@ const app = new Vue({
 		recent: []
 	},
 	created: function() {
+		let self = this;
 		let val = sessionStorage.getItem("status");
 		if( val != null ) this.pin = val;
 		this.guard_key_placeholder = Parse.Config.current().get( "guard_key_placeholder" );
@@ -41,13 +45,34 @@ const app = new Vue({
 				this.pin = code;
 			}
 		}
+		db.question.hook("creating", function(id, obj,txn) {
+			let dummy = $.extend({}, obj);
+			dummy.className = "feedback";
+			let model = Parse.Object.fromJSON(dummy);
+			self.addToView( model );
+		});
+		db.question.hook("updating", function(modifications, id, obj,txn) {
+			let dummy = $.extend({}, modifications, obj);
+			dummy.className = "feedback";
+			let model = Parse.Object.fromJSON(dummy);
+			self.addToView( model );
+		});
 	},
 	watch: {
 		pin: function( val ) {
+			let self = this;
 			if( val.length == 4 ) {
 				this.notLogged = false;
 				sessionStorage.setItem("status", val);
-				this.getAllByPin();
+				db.question.where("pin").equals( this.pin ).toArray().then(res=>{
+					res.forEach(v=>{
+						let dummy = $.extend({}, v);
+						dummy.className = "feedback";
+						self.addToView( Parse.Object.fromJSON(dummy) );
+					});
+					self.recent.sort((b,a)=> b.createdAtAsDate-a.createdAtAsDate );
+					self.sync();
+				});
 			}
 		},
 		message: function( v ) {
@@ -79,7 +104,7 @@ const app = new Vue({
 						self.submit_btn_icon = "sentiment_very_satisfied";
 						rolling.close();
 						$.message.success( Parse.Config.current().get("successMessage") );
-						self.addToView( feedbackEntity );
+						db.question.put( feedbackEntity.toJSON() );
 						document.getElementById("message").focus();
 					},
 					error: function( er ) {
@@ -101,30 +126,39 @@ const app = new Vue({
 				el.height(height+34);
 			}
 		},
-		getAllByPin: function() {
+		sync: function() {
 			let self = this;
 			let q = new Parse.Query( Feedback );
 			q.equalTo( "pin", this.pin );
 			q.ascending( "createdAt" );
 			q.find().then( function( res ) {
 				let container = $( self.$el );
-				res.forEach(v=> self.addToView( v ) );
+				let responses = res.map(v=>v.toJSON());
+				db.question.bulkPut( responses ).then(()=>{
+					self.recent.sort((b,a)=> b.createdAtAsDate-a.createdAtAsDate )
+				});
 			}).catch( console.warn);
 		},
 		addToView: function( model ) {
 			let self = this;
-			self.cache.set( model.id, model );
-			let json = {
-				id: model.id,
-				response_count: 0,
-				createdAt: model.get("createdAt").toLocaleString(),
-				user: model.get("user"),
-				message: model.get("message").replace("\n", "<br/>")
+			let json = model.toJSON();
+			json.id = model.id;
+			json.response_count = 0;
+			json.createdAtAsDate = model.get("createdAt");
+			json.createdAt = model.get("createdAt").toLocaleString();
+			json.message = model.get("message").replace("\n", "<br/>")
+			if( json.hasOwnProperty("response") ) json.response_count = json.response.length;
+			if( json.user == current.me() ) json.type = "my-question";
+			if( self.cache.has( model.id ) ) {
+				json = self.recent.filter(v=>v.id.match(model.id))[0];
+				json.createdAtAsDate = model.get("createdAt");
+				json.message = model.get("message").replace("\n", "<br/>")
+				json.createdAt = model.get("createdAt").toLocaleString();
+				if( model.has("response") ) json.response_count = model.get("response").length;
+			} else {
+				self.recent.push( json );
 			}
-			if( model.get("user") == current.me() ) json.type = "my-question";
-			else json.type = "others-question";
-			if( model.has("response") ) json.response_count = model.get("response").length;
-			self.recent.push( json );
+			self.cache.set( model.id, model );
 		},
 		closeResponse: function( ev ) {
 			document.querySelector("#response-modal").style.display = "none";
@@ -156,6 +190,7 @@ const app = new Vue({
 			};
 			model.add( "response", response );
 			model.save().then( r => {
+				db.question.put( r.toJSON() );
 				self.addResponseToView( response );
 				rolling.close();
 				$.message.success( Parse.Config.current().get("successMessage") );
@@ -217,8 +252,8 @@ $("body").css({
 	"background-attachment": "fixed"
 });
 
-let url = `https://source.unsplash.com/collection/148041/${window.innerWidth}x${window.innerHeight}`;
-if (navigator.onLine) $(".backpanel").css({ "background-image": `url(${url})` });
+// let url = `https://source.unsplash.com/collection/148041/${window.innerWidth}x${window.innerHeight}`;
+// if (navigator.onLine) $(".backpanel").css({ "background-image": `url(${url})` });
 
 document.onreadystatechange = function() {
 	if( document.readyState == "complete" ) {

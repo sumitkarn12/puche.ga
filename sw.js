@@ -23,7 +23,8 @@ const CACHE_FILES = [
 	"/manifest.json",
 	"https://code.jquery.com/jquery-1.12.4.min.js",
 	"https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js",
-	'https://fonts.googleapis.com/icon?family=Material+Icons'
+	'https://fonts.googleapis.com/icon?family=Material+Icons',
+	'https://unpkg.com/dexie@latest/dist/dexie.js'
 ];
 
 self.addEventListener( "install", function(event) {
@@ -45,35 +46,13 @@ self.addEventListener('activate', function (event) {
 		})
 	)
 });
-
 self.addEventListener('fetch', function(event) {
-	event.respondWith(
-		caches.match(event.request).then(function(response) {
-			if (response) {
-				return response;
-			} else {
-				console.log('[fetch] Returning from server: ', event.request.url);
-				return fetch(event.request);
-			}
-		})
-	);
-	if( event.request.url.startsWith( "https://source.unsplash.com" ) ) {
-		event.waitUntil( updateAndCache( event.request ) );
-	}
+	caches.match(event.request).then(function(response) {
+		if (response) {
+			return response;
+		} else {
+			console.log('[fetch] Returning from server: ', event.request.url);
+			return fetch(event.request);
+		}
+	})
 });
-function updateAndCache( request ) {
-	return new Promise( ( resolve, reject )=>{
-		caches.open( CACHE_VERSION ).then(function( cache ) {
-			fetch( request ).then(function( response ) {
-				if( response.ok )
-					cache.put( request, response ).then(function() {
-						resolve(`${request.url} Added to cache` );
-					}, reject);
-				else {
-					resolve(`Couldn't fetch ${request.url}`);
-				}
-			}).catch( reject );
-		});
-	});
-}
-
