@@ -1,9 +1,11 @@
 
 // Wed Sep 13 08:12:46 2017
 
-const CACHE_VERSION = "v3";
+const CACHE_VERSION = "v4";
 const CACHE_FILES = [
 	"/",
+	"/?launcher=true",
+	"/index.html?launcher=true",
 	"/index.html",
 	"/js/index.js",
 	"/js/parse.min.js",
