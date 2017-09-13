@@ -1,9 +1,10 @@
 
 // Tue Sep 12 12:40:21 2017
 
-const CACHE_VERSION = "v10";
+const CACHE_VERSION = "v2";
 const CACHE_FILES = [
 	"/",
+	"/index.html",
 	"/js/index.js",
 	"/js/parse.min.js",
 	"/message/message.js",
