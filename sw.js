@@ -1,15 +1,15 @@
 
-// Mon Sep 11 23:56:03 2017
+// Tue Sep 12 12:40:21 2017
 
-const CACHE_VERSION = "v2";
+const CACHE_VERSION = "v10";
 const CACHE_FILES = [
 	"/",
 	"/js/index.js",
 	"/js/parse.min.js",
 	"/message/message.js",
 	"/message/message.css",
-	"/message/message.css",
 	"/css/style.css",
+	"/css/w3.css",
 	"/images/favicon-32x32.png",
 	"/images/favicon-194x194.png",
 	"/images/android-chrome-192x192.png",
@@ -29,11 +29,6 @@ self.addEventListener( "install", function(event) {
 			return cache.addAll( CACHE_FILES );
 		}).then(function() {
 			return self.skipWaiting();
-		}).catch(function( res ) {
-			console.log( "Service Worker: ", res );
-			return new Promise(( resolve )=>{
-				resolve("Added to cache");
-			});
 		})
 	);
 });

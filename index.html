@@ -29,6 +29,7 @@
 	<meta property="og:url" content="https://puche.ga"/>
 
 	<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+	<link rel="stylesheet" href="/css/w3.css">
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/message/message.css">
 </head>
@@ -40,20 +41,40 @@
 	</div>
 	<div class="app">
 		<section class="guard" v-if="notLogged">
-			<div class="padding">
-				<i class="material-icons profile">person</i>
-				<input tabindex="1" id="input-key" v-model="pin" type="number" class="input shadow round block padding" placeholder="हिया पर चाभी घुसाना होता है" autofocus />
+			<div class="w3-padding">
+				<i class="material-icons profile w3-animate-top">person</i>
+				<input tabindex="1" id="input-key" v-model="pin" type="number" class="w3-input input w3-card w3-round w3-block w3-padding w3-animate-left w3-center" v-bind:placeholder="guard_key_placeholder" autofocus />
 			</div>
 		</section>
 		<section class="message" v-else="notLogged">
-			<i class="material-icons top-icon shadow round padding">message</i>
-			<form id="feedback-form" class="padding" v-on:submit.prevent="submitMessage">
-				<textarea v-model="message" tabindex="2" name="message" id="message" class="input round block padding" placeholder="जे पूछना है हिया लिख दीजिये "></textarea>
-				<button tabindex="3" class="button shadow"><i class="material-icons">{{submit_btn_icon}}</i></button>
+			<form id="feedback-form" class="flex-container" v-on:submit.prevent="submitMessage">
+				<div class="pin flex-center w3-round w3-white w3-animate-top"><span class="w3-animate-axle">{{pin}}</span></div>
+				<textarea v-model="message" tabindex="2" name="message" id="message" class="w3-input input w3-round w3-center w3-animate-right" v-on:keyup="increaseHeight" v-bind:placeholder="message_placeholder"></textarea>
+				<button tabindex="3" class="material-icons w3-button w3-round w3-white flex-center w3-animate-left">{{submit_btn_icon}}</button>
 			</form>
-			<br><br><br>
-			<div class="recent-messages" v-for="msg in recent">
-				<div class="message-card">{{msg}}</div>
+			<div class="w3-section"></div>
+			<div class="recent-messages">
+				<div v-for="msg in recent" class="message-card" v-bind:class="msg.type" v-bind:class="msg.user">
+					<div class="w3-card w3-shadow w3-round-xxlarge w3-white w3-animate-opacity" v-on:click="openResponses" v-bind:id="msg.id">
+						<div v-html="msg.message"></div>
+						<div class="w3-tiny">{{msg.createdAt}}</div>
+					</div>
+					<span class="w3-badge w3-orange">{{msg.response_count}}</span>
+				</div>
+			</div>
+			<div class="w3-modal" id="response-modal">
+				<div class="w3-modal-content w3-animate-top w3-round-large w3-card-4">
+					<div class="w3-bar w3-card-4">
+						<div class="w3-padding w3-bar-item">Responses</div>
+						<button class="w3-button material-icons w3-right" v-on:click="closeResponse">close</button>
+					</div>
+					<div class="responses w3-padding"></div>
+					<form class="new-response-form w3-card-4" v-on:submit.prevent="submitResponse">
+						<input type="hidden" v-model="response_id"/>
+						<input type="text" v-model="response_text" class="w3-input" v-bind:placeholder="response_placeholder"/>
+						<button class="w3-button w3-border-left material-icons">send</button>
+					</form>
+				</div>
 			</div>
 		</section>
 	</div>

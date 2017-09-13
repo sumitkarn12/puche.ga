@@ -1,147 +1,46 @@
-* { box-sizing: border-box; padding: 0; margin: 0; }
-body {
-  background-color: #000;
-}
-.backpanel{
-  background-image: url(/images/default-background.jpg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  width: 100%;
-  height: 100vh;
-  opacity: 0.8;
-  position: fixed;  
-  z-index: -1;
-  top: 0;
-  left: 0;
-  animation: opacity 30s infinite linear;
-}
-.splash {
-    width: 100%;
-    height: 100vh;
-    color: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.splash>.icon {
-  font-size: 220px;
-  animation: pluffy 2s infinite linear;
-}
-.guard .profile {
-  color: white;
-    font-size: 156px;
-    max-width: 156px;
-    margin: 0 auto -26px auto;
-    display: block;
-    text-shadow: 2px -2px 8px #ff9999;
-    animation: toY 0.5s ease-out;
-}
-textarea:focus,button:focus,input:focus { outline-width: 0; }
-.button:active,.button:focus, .button:hover { box-shadow: 1px 1px 5px 2px rgba(250,200, 255, 0.5); }
-.shadow { box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.3); }
-.round { border-radius: 8px; }
-.padding { padding: 16px; }
-.block { width: 100%; }
-.app {
-  width: 100%;
-  max-width: 640px;
-  margin: auto;
-  display: none;
-}
-.top-icon {
-  font-size: 42px;
-  margin: 16px 0 0 16px;
-  width: 72px;
-  display: block;
-  background: #fff;
-  animation: toY 0.5s ease-out;
-}
-.input {
-  font-size: 22px;
-  text-align: center;
-  padding: 8px;
-  border: 0;
-  border-bottom: 7px solid purple;
-  font-family: 'tahoma';
-  animation: toX 0.5s ease-out;
-}
-.button {
-  float: right;
-  border: 0;
-  width: 52px;
-  height: 52px;
-  text-align: center;
-  box-sizing: border-box;
-  cursor: pointer;
-  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.5);
-  transition: box-shadow 0.5s;
-  animation: scale 0.5s ease-out;
-  border-radius: 2em;
-}
-.message .input { height: 50px; transition: height 0.5s ease-out; }
-.message .input:focus { height: 120px; }
-.recent-messages {
-  padding: 16px;
-}
-.recent-messages>.message-card {
-  float: right;
-  clear: both;
-  padding: 8px 12px;
-  border-radius: 1em 0.3em 0.3em 1em;
-  box-shadow: 3px 2px 4px #fababa;
-  margin-top: 4px;
-  background-color: #fff;
-  font-family: monospace;
-}
+button:focus,input:focus,textarea:focus { outline: 0; }
+.backpanel { background-size: cover; background-position: center; background-attachment: fixed; width: 100%; height: 100vh; opacity: 0.8; position: fixed; z-index: -1; top: 0; left: 0; animation: opacity 30s infinite linear; }
+.splash { width: 100%; height: 100vh; color: red; display: flex; justify-content: center; align-items: center; }
+.splash>.icon { font-size: 220px; animation: pluffy 2s infinite linear; }
+.app { width: 100%; max-width: 640px; margin: auto; display: none; }
+.guard .profile { color: white; font-size: 156px; max-width: 156px; margin: 0 auto -26px auto; display: block; text-shadow: 2px -2px 8px #ff9999; }
+.input { font-size: 22px; border-bottom: 7px solid purple; font-family: 'tahoma'; }
+.message { padding: 8px; }
+.message .flex-container { display: flex; flex-direction: row; }
+.message .flex-center { display: flex; justify-content: center; align-items: center; }
+.message .input { height: 56px; transition: height 0.5s ease-out; margin: 0 4px; }
+.message .pin { font-size: 22px; font-family: fantasy; display: flex; align-items: center; justify-content: center; width: 92px; }
+.message .w3-row-padding { margin-top: 8px; }
+.message .left-side { width: 72px; padding: 0; }
+.message .right-side { padding-left: 16px; }
+.message .message-card { display: flex; flex-direction: row; align-items: center; }
+.message .message-card>div { padding: 8px 22px; margin-top: 6px; letter-spacing: normal; line-height: 1.2; max-width: 85%; }
+.message .my-question { flex-direction: row-reverse; }
+.message .new-response-form { display: flex; width: 100%; }
+.message .new-response-form>input { height: 52px; border-bottom-left-radius: 8px; }
+.message .new-response-form>button { border-bottom-right-radius: 8px; }
+.message .w3-bar { border-top-left-radius: 8px; border-top-right-radius: 8px; background: rgba(0, 0, 0, 0.26); color: #000; }
+.message .w3-bar>button { background: rgba(0, 0, 0, 0.05); color: #000; }
+.message #response-modal .responses { width: 100%; display: inline-block; }
 
-
-@keyframes toY {
-  from {
-    transform: translateY(-30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-}
 @keyframes toX {
-  from {
-    transform: translateX(-30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0px);
-    opacity: 1;
-  }
+    from { transform: translateX(-30px); opacity: 0; }
+    to { transform: translateX(0px); opacity: 1; }
 }
 @keyframes scale {
-  0% {
-    transform: scale(0,0);
-    opacity: 0;
-  }
-  80% {
-    transform: scale(1.1,1.1);
-    opacity: 1;
-  }
-  90% {
-    transform: scale(0.9,0.9);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1,1);
-    opacity: 1;
-  }
+    0% { transform: scale(0,0); opacity: 0; }
+    80% { transform: scale(1.1,1.1); opacity: 1; }
+    90% { transform: scale(0.9,0.9); opacity: 1; }
+    100% { transform: scale(1,1); opacity: 1; }
 }
 @keyframes opacity {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
+    0% { opacity: 0.1; }
+    50% { opacity: 1; }
+    100% { opacity: 0.1; }
 }
 @keyframes pluffy {
-  0% { transform: scale(0.8,0.8); }
-  60% { transform: scale(0.9,0.9); }
-  70% { transform: scale(1.2,1.2); }
-  100% { transform: scale(0.8,0.8); }
+    0% { transform: scale(0.8,0.8); }
+    60% { transform: scale(0.9,0.9); }
+    70% { transform: scale(1.2,1.2); }
+    100% { transform: scale(0.8,0.8); }
 }
