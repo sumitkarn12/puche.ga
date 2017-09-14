@@ -47,12 +47,14 @@ self.addEventListener('activate', function (event) {
 	)
 });
 self.addEventListener('fetch', function(event) {
-	caches.match(event.request).then(function(response) {
-		if (response) {
-			return response;
-		} else {
-			console.log('[fetch] Returning from server: ', event.request.url);
-			return fetch(event.request);
-		}
-	})
+	event.respondWith(
+		caches.match(event.request).then(function(response) {
+			if (response) {
+				return response;
+			} else {
+				console.log('[fetch] Returning from server: ', event.request.url);
+				return fetch(event.request);
+			}
+		})
+	);
 });

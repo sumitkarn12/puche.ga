@@ -104,7 +104,7 @@ const app = new Vue({
 						self.submit_btn_icon = "sentiment_very_satisfied";
 						rolling.close();
 						$.message.success( Parse.Config.current().get("successMessage") );
-						db.question.put( feedbackEntity.toJSON() );
+						db.question.put( feedbackEntity.toJSON() ).then(console.log);
 						document.getElementById("message").focus();
 					},
 					error: function( er ) {
