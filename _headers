@@ -2,3 +2,15 @@
 access-control-allow-origin: *
 cache-control: max-age=315360000, public
 
+/
+access-control-allow-origin: *
+cache-control: max-age=315360000, public
+
+/index.html
+access-control-allow-origin: *
+cache-control: max-age=315360000, public
+
+/index.html?launcher=true
+access-control-allow-origin: *
+cache-control: max-age=315360000, public
+
