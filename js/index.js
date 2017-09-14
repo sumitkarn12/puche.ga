@@ -252,7 +252,7 @@ $("body").css({
 	"background-attachment": "fixed"
 });
 $(".backpanel").css({
-	"background-image": `url( ${image[Math.floor(Math.random()*gradient.length)]})`
+	"background-image": `url( ${image[Math.floor(Math.random()*image.length)]})`
 });
 
 document.onreadystatechange = function() {
