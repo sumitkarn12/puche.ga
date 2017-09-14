@@ -1,7 +1,7 @@
 
 // Wed Sep 13 08:12:46 2017
 
-const CACHE_VERSION = "v5";
+const CACHE_VERSION = "v1";
 const CACHE_FILES = [
 	"/",
 	"/?launcher=true",
@@ -24,7 +24,7 @@ const CACHE_FILES = [
 	"https://code.jquery.com/jquery-1.12.4.min.js",
 	"https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js",
 	'https://fonts.googleapis.com/icon?family=Material+Icons',
-	'https://unpkg.com/dexie@latest/dist/dexie.js'
+	'https://cdnjs.cloudflare.com/ajax/libs/dexie/1.5.1/dexie.min.js'
 ];
 
 self.addEventListener( "install", function(event) {
