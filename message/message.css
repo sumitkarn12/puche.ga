@@ -19,6 +19,7 @@
   transition: opacity .3s, transform .4s;
   transition: opacity .3s, transform .4s, -webkit-transform .4s;
   overflow: hidden;
+  border: 1px solid;
 }
 
 .jq-message.begin {

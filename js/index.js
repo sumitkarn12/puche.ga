@@ -22,6 +22,8 @@ const app = new Vue({
 	el: ".app",
 	data: {
 		notLogged: true,
+		net_status: true,
+		net_warning: null,
 		pin: "",
 		submit_btn_icon: "send",
 		message: "",
@@ -57,6 +59,9 @@ const app = new Vue({
 			let model = Parse.Object.fromJSON(dummy);
 			self.addToView( model );
 		});
+		setTimeout(()=>{
+			this.net_status = navigator.onLine;
+		}, 3000);
 	},
 	watch: {
 		pin: function( val ) {
@@ -78,6 +83,18 @@ const app = new Vue({
 		message: function( v ) {
 			if( v == "" )
 				$(".message #message").height( 34 );
+		},
+		net_status: function( status ) {
+			if( !status ) {
+				this.net_warning = $.message.warning({
+					message: Parse.Config.current().get("not_connected_message"),
+					duration:0
+				});
+				$("body").addClass('w3-sepia');
+			} else {
+				$("body").removeClass('w3-sepia');
+				this.net_warning.close();
+			}
 		}
 	},
 	methods: {
@@ -262,3 +279,9 @@ document.onreadystatechange = function() {
 	}
 };
 
+window.addEventListener('online', ()=> InformConnectivity( true ) );
+window.addEventListener('offline', ()=> InformConnectivity( false )  );
+
+function InformConnectivity( status ) {
+	app.net_status = status;
+}
