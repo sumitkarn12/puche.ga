@@ -1,7 +1,7 @@
 
-// Wed Sep 13 08:12:46 2017
+// Fri Sep 15 09:20:40 2017
 
-const CACHE_VERSION = "v3";
+const CACHE_VERSION = "v1.7";
 const CACHE_FILES = [
 	"/",
 	"/?launcher=true",
@@ -9,6 +9,7 @@ const CACHE_FILES = [
 	"/index.html",
 	"/js/index.js",
 	"/js/parse.min.js",
+	"/js/gradients.json",
 	"/message/message.js",
 	"/message/message.css",
 	"/css/style.css",
@@ -58,3 +59,4 @@ self.addEventListener('fetch', function(event) {
 		})
 	);
 });
+
