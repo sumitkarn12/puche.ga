@@ -1,34 +1,31 @@
 
-// Fri Sep 15 09:20:40 2017
+// Sat Jan 13 16:02:56 2018
 
-const CACHE_VERSION = "v1.7";
+const CACHE_VERSION = "v1.1";
 const CACHE_FILES = [
 	"/",
 	"/?launcher=true",
-	"/index.html?launcher=true",
 	"/index.html",
-	"/js/index.js",
-	"/js/parse.min.js",
-	"/js/gradients.json",
-	"/message/message.js",
-	"/message/message.css",
-	"/css/style.css",
-	"/css/w3.css",
-	"/images/favicon-32x32.png",
-	"/images/favicon-194x194.png",
-	"/images/android-chrome-192x192.png",
-	"/images/favicon-16x16.png",
-	"/images/safari-pinned-tab.svg",
-	"/images/mstile-144x144.png",
+	"/index.html?launcher=true",
+	"/icons/icon-72x72.png",
+	"/icons/icon-96x96.png",
+	"/icons/icon-128x128.png",
+	"/icons/icon-144x144.png",
+	"/icons/icon-152x152.png",
+	"/icons/icon-192x192.png",
+	"/icons/icon-384x384.png",
+	"/icons/icon-512x512.png",
 	"/favicon.ico",
-	"/manifest.json",
-	"https://code.jquery.com/jquery-1.12.4.min.js",
-	"https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js",
-	'https://fonts.googleapis.com/icon?family=Material+Icons',
-	'https://cdnjs.cloudflare.com/ajax/libs/dexie/1.5.1/dexie.min.js'
+	"/logo.jpg",
+	"/cover.jpg",
+	"/w3.css",
+	"/w3-theme-orange.css",
+	"https://use.fontawesome.com/releases/v5.0.4/js/all.js",
+	"/manifest.json"
 ];
 
 self.addEventListener( "install", function(event) {
+	console.log( "install event" );
 	event.waitUntil(
 		caches.open( CACHE_VERSION ).then(function( cache ) {
 			return cache.addAll( CACHE_FILES );
@@ -38,6 +35,7 @@ self.addEventListener( "install", function(event) {
 	);
 });
 self.addEventListener('activate', function (event) {
+	console.log( "activate event" );
 	event.waitUntil(
 		caches.keys().then(function(keys){
 			keys.map(function( key, i ) {
@@ -48,9 +46,11 @@ self.addEventListener('activate', function (event) {
 	)
 });
 self.addEventListener('fetch', function(event) {
+	console.log( "fetch event" );
 	event.respondWith(
 		caches.match(event.request).then(function(response) {
 			if (response) {
+				console.log( event.request.url );
 				return response;
 			} else {
 				console.log('[fetch] Returning from server: ', event.request.url);

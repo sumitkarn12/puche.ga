@@ -1,104 +1,87 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>W3.CSS Template</title>
 		<meta charset="UTF-8">
-		<title>puche.ga | कुछो पूछना है</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<meta name="description" content="Jo puchna hai puch lijiye | जो पूछना है पूछ लीजिये एकदम से " />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Preparing for board exam? We're here to help you" />
 
 		<link rel="alternate" href="https://puche.ga/" hreflang="x-default" />
 
-		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="194x194" href="/images/favicon-194x194.png">
-		<link rel="icon" type="image/png" sizes="192x192" href="/images/android-chrome-192x192.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-		<link rel="manifest" href="/manifest.json">
-		<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#c2ade6">
-		<meta name="apple-mobile-web-app-title" content="puche.ga | कुछो पूछना है">
-		<meta name="application-name" content="puche.ga | कुछो पूछना है">
-		<meta name="msapplication-TileColor" content="#c2ade6">
-		<meta name="msapplication-TileImage" content="/images/mstile-144x144.png">
-		<meta name="theme-color" content="#c2ade6">
-		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png" />
+		<link rel="manifest" href="/manifest.json" />
+		<meta name="application-name" content="puche.ga | board exam helper" />
+		<meta name="msapplication-TileColor" content="#ff9800" />
+		<meta name="msapplication-TileImage" content="/icons/icon-144x144.png" />
+		<meta name="theme-color" content="#ff9800" />
+		<link rel="shortcut icon" href="/favicon.ico" />
 
 		<!-- og tags -->
-		<meta property="og:image" content="https://puche.ga/images/android-chrome-512x512.png"/>
-		<meta property="og:title" content="puche.ga | कुछो पूछना है"/>
-		<meta property="og:description" content="Jo puchna hai puch lijiye | जो पूछना है पूछ लीजिये एकदम से "/>
+		<meta property="og:image" content="https://puche.ga/icons/icon-512x512.png"/>
+		<meta property="og:title" content="puche.ga | board exam helper"/>
+		<meta property="og:description" content="Preparing for board exam? We're here to help you"/>
 		<meta property="og:site_name" content="puche.ga"/>
 		<meta property="og:type" content="website"/>
 		<meta property="og:url" content="https://puche.ga"/>
 
-		<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
-		<link rel="stylesheet" href="/css/w3.css">
-		<link rel="stylesheet" href="/css/style.css">
-		<link rel="stylesheet" href="/message/message.css">
+		<link rel="stylesheet" href="/w3.css">
+		<link rel="stylesheet" href="/w3-theme-orange.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+		<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+		<style>
+			body, h1, h5 {font-family: "Raleway", sans-serif}
+			body, html {height: 100%}
+		</style>
 	</head>
 
 	<body>
-		<div class="backpanel"></div>
-		<div class="splash"><i class="material-icons icon">favorite</i></div>
-		<div class="app">
-			<section class="guard" v-if="notLogged">
-				<div class="w3-padding">
-					<i class="material-icons profile w3-animate-top">person</i>
-					<input tabindex="1" id="input-key" v-model="pin" type="number" class="w3-input input w3-card w3-round w3-block w3-padding w3-animate-left w3-center" v-bind:placeholder="guard_key_placeholder" autofocus />
-				</div>
-			</section>
-			<section class="message" v-else="notLogged">
-				<form id="feedback-form" class="flex-container" v-on:submit.prevent="submitMessage">
-					<div class="pin flex-center w3-round w3-white w3-animate-top"><span class="w3-animate-axle">{{pin}}</span></div>
-					<textarea v-model="message" tabindex="2" name="message" id="message" class="w3-input input w3-round w3-center w3-animate-right" v-on:keyup="increaseHeight" v-bind:placeholder="message_placeholder"></textarea>
-					<button tabindex="3" class="material-icons w3-button w3-round w3-white flex-center w3-animate-left">{{submit_btn_icon}}</button>
-				</form>
-				<div class="w3-section"></div>
-				<div class="recent-messages">
-					<div v-for="msg in recent" class="message-card" v-bind:class="msg.type" v-bind:class="msg.user">
-						<div class="w3-card w3-shadow w3-round-xxlarge w3-white w3-animate-opacity" v-on:click="openResponses" v-bind:id="msg.id">
-							<div v-html="msg.message"></div>
-							<div class="w3-tiny">{{msg.createdAt}}</div>
-						</div>
-						<span class="w3-badge w3-orange">{{msg.response_count}}</span>
-					</div>
-				</div>
-				<div class="w3-modal" id="response-modal">
-					<div class="w3-modal-content w3-animate-top w3-round-large w3-card-4">
-						<div class="w3-bar w3-card-4">
-							<div class="w3-padding w3-bar-item">Responses</div>
-							<button class="w3-button material-icons w3-right" v-on:click="closeResponse">close</button>
-						</div>
-						<div class="responses w3-padding"></div>
-						<form class="new-response-form w3-card-4" v-on:submit.prevent="submitResponse">
-							<input type="hidden" v-model="response_id"/>
-							<input type="text" v-model="response_text" class="w3-input" v-bind:placeholder="response_placeholder"/>
-							<button class="w3-button w3-border-left material-icons">send</button>
-						</form>
-					</div>
-				</div>
-			</section>
+
+		<div class="w3-display-container w3-text-white" style="height: 100vh; overflow: hidden;">
+			<img class="bgimg" src="/cover.jpg" style="opacity: 0.5;" alt="">
+			<div class="w3-display-topright w3-padding w3-xlarge">
+				<a target="_blank" href="mailto:sdhananjay9@gmail.com?Subject=I%20have%20a%20question" class="w3-button w3-theme-d2 w3-circle w3-card"><i class="fas fa-envelope-square"></i></a>
+				<a target="_blank" href="https://m.me/puche.ga" class="w3-button w3-theme-d3 w3-circle w3-card"><i class="fab fa-facebook-messenger"></i></a>
+				<a target="_blank" href="https://www.facebook.com/puche.ga" class="w3-button w3-theme-d4 w3-circle w3-card"><i class="fab fa-facebook"></i></a>
+				<a target="_blank" href="https://www.instagram.com/puche.ga" class="w3-button w3-theme-d5 w3-circle w3-card"><i class="fab fa-instagram"></i></a>
+				<img class="w3-circle w3-card-4" src="/logo.jpg" style="width: 60px;" alt="">
+			</div>
+			<div class="w3-display-middle w3-card-4 w3-padding w3-theme-l1 w3-round" style="min-width: 300px; max-width: 600px;">
+				<p><a href="https://fb.me/puche.ga">puche.ga</a> is for those student who want to prepare for board exam on their own.</p>
+				<p><a href="https://fb.me/puche.ga">puche.ga</a> provides free sample papers, online test, quizzes and much more by it's facebook page.</p>
+				<p>If you're a student preparing for your board exam &amp; you want to get all these, follow <a href="https://fb.me/puche.ga">puche.ga on facebook</a>.</p>
+				<p>And don't hesitate to ask any doubt if you have. You can ask it by any mean. Links given on the top.</p>
+			</div>
 		</div>
-
-		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/dexie/1.5.1/dexie.min.js"></script>
-		<script src='/js/parse.min.js'></script>
-		<script src="/message/message.js"></script>
-		<script src="/js/index.js"></script>
-
-		<script>
-			if ('serviceWorker' in navigator) {
-				window.addEventListener('load', function() {
-					navigator.serviceWorker.register('/sw.js').then(function(registration) {
-						// Registration was successful
-						console.log('ServiceWorker registration successful with scope: ', registration.scope);
-					}, function(err) {
-						// registration failed :(
-						console.log('ServiceWorker registration failed: ', err);
-					});
-				});
-			}
-		</script>
 	</body>
+	
+	<script>
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', function() {
+				navigator.serviceWorker.register('/sw.js').then(function(registration) {
+					// Registration was successful
+					console.log('ServiceWorker registration successful with scope: ', registration.scope);
+				}, function(err) {
+					// registration failed :(
+					console.log('ServiceWorker registration failed: ', err);
+				});
+			});
+		}
+
+		let img = document.querySelector( ".bgimg" );
+		window.addEventListener("resize",  rsz);
+		function rsz() {
+			let winH = window.innerHeight;
+			let winW = window.innerWidth;
+			if( winH < winW ) {
+				img.style.width = "100%";
+				img.style.height = "auto";
+			} else {
+				img.style.width = "auto";
+				img.style.height = "100%";
+			}
+		}
+		rsz();
+	</script>
+
 </html>
 
