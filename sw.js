@@ -1,7 +1,7 @@
 
 // Sat Jan 13 16:02:56 2018
 
-const CACHE_VERSION = "v1.2.1";
+const CACHE_VERSION = "v1.2.2";
 const CACHE_FILES = [
 	"/",
 	"/?launcher=true",
