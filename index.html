@@ -25,9 +25,22 @@
 		<link rel="stylesheet" href="/w3-theme-orange.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 		<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+		<script defer src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.11"></script>
+		<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
 		<style>
 			body, h1, h5 {font-family: "Raleway", sans-serif}
 			body, html {height: 100%}
+			.pg-main a { text-decoration: none; color: #ffecd0; }
+			.pg-animate-top {
+				position:relative;
+				animation:pganimatetop 1s
+			}
+			@keyframes pganimatetop{from{top:-106px;opacity:0} to{top:-186px;opacity:1}}
+			.pg-animate-bottom { animation:pganimatebottom 1s; } @keyframes pganimatebottom{from{top:40%;} to{top:50%;}}
+			@keyframes pganimatebtn{from{left: 50px;} to{left:0;}}
+			.pg-animate-mail-btn { position: relative; animation-name: pganimatebtn; animation-delay: 0s; animation-duration: 1s; }
+			.pg-animate-facebook-btn { position: relative; animation-name: pganimatebtn; animation-delay: 0.2s; animation-duration: 1s; }
+			.pg-animate-instagram-btn { position: relative; animation-name: pganimatebtn; animation-delay: 0.4s; animation-duration: 1s; }
 		</style>
 	</head>
 
@@ -35,20 +48,49 @@
 
 		<div class="w3-display-container w3-text-white" style="height: 100vh; overflow: hidden;">
 			<img class="bgimg" src="/cover.jpg" style="opacity: 0.5;" alt="">
-			<div class="w3-display-topright w3-padding w3-xlarge">
-				<a target="_blank" href="mailto:sdhananjay9@gmail.com?Subject=I%20have%20a%20question" class="w3-button w3-theme-d2 w3-circle w3-card"><i class="fas fa-envelope-square"></i></a>
-				<a target="_blank" href="https://m.me/puche.ga" class="w3-button w3-theme-d3 w3-circle w3-card"><i class="fab fa-facebook-messenger"></i></a>
-				<a target="_blank" href="https://www.facebook.com/puche.ga" class="w3-button w3-theme-d4 w3-circle w3-card"><i class="fab fa-facebook"></i></a>
-				<a target="_blank" href="https://www.instagram.com/puche.ga" class="w3-button w3-theme-d5 w3-circle w3-card"><i class="fab fa-instagram"></i></a>
-				<img class="w3-circle w3-card-4" src="/logo.jpg" style="width: 60px;" alt="">
+			<div class="w3-display-middle">
+				<img class="w3-circle w3-card-4 pg-animate-top" src="/logo.jpg" style="width: 120px;position:relative; top: -186px;">
 			</div>
-			<div class="w3-display-middle w3-card-4 w3-padding w3-theme-l1 w3-round" style="min-width: 300px; max-width: 600px;">
-				<p><a href="https://fb.me/puche.ga">puche.ga</a> is for those student who want to prepare for board exam on their own.</p>
-				<p><a href="https://fb.me/puche.ga">puche.ga</a> provides free sample papers, online test, quizzes and much more by it's facebook page.</p>
-				<p>If you're a student preparing for your board exam &amp; you want to get all these, follow <a href="https://fb.me/puche.ga">puche.ga on facebook</a>.</p>
+			<div class="pg-main pg-animate-bottom w3-display-middle w3-card-4 w3-padding w3-theme-l1 w3-round" style="min-width: 300px; max-width: 600px;">
+				<p><a class="fb-btn" href="#facebook">PUCHE.GA</a> is for those student who want to prepare for board exam on their own.</p>
+				<p><a class="fb-btn" href="#facebook">PUCHE.GA</a> provides free sample papers, online test, quizzes and much more by it's facebook page.</p>
+				<p>If you're a student preparing for your exam, follow <a class="fb-btn" href="#facebook">PUCHE.GA on Facebook</a>.</p>
 				<p>And don't hesitate to ask any doubt if you have. You can ask it by any mean. Links given on the top.</p>
 			</div>
+			<div class="w3-display-bottomright w3-xlarge w3-margin">
+				<a href="mailto:sdhananjay9@gmail.com?Subject=I%20have%20a%20question" class="w3-button w3-theme-d2 w3-circle w3-card pg-animate-mail-btn"><i class="fas fa-envelope-square"></i></a>
+				<a href="#facebook" class="w3-button w3-theme-d4 w3-circle w3-card pg-animate-facebook-btn"><i class="fab fa-facebook"></i></a>
+				<a href="#instagram" class="w3-button w3-theme-d5 w3-circle w3-card  pg-animate-instagram-btn"><i class="fab fa-instagram"></i></a>
+			</div>
 		</div>
+
+		<div class="w3-modal" id="fb-modal" style="display: none; justify-content: center; align-items: center;padding: 0;">
+			<div class="w3-modal-content w3-animate-zoom w3-card-4" style="max-width: 300px; height: 300px;min-width: 300px;">
+				<!-- facebook like code -->
+				<div style="display: flex;align-items: center;">
+					<div class="fb-page" data-href="https://www.facebook.com/puche.ga/" data-tabs="messages" data-height="300" data-width="300" data-small-header="false" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/puche.ga/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/puche.ga/">Puche Ga</a></blockquote></div>
+				</div>
+				<button onclick="share.facebook()" style="position: relative; top: -362px;left:-8px; float: right;" class="w3-button w3-circle w3-card-4 w3-theme-d5 w3-xlarge"><i class="fas fa-times"></i></button>
+				<div class="fb-ticker w3-padding w3-theme">
+					Click like button to like us on facebook. You can also send your questions or messages by writing in the box.
+				</div>
+			</div>
+		</div>
+
+		<div class="w3-modal" id="insta-modal" style="display: none; justify-content: center; align-items: center;padding: 0;">
+			<div class="w3-modal-content w3-animate-zoom w3-card-4" style="max-width: 300px; height: 458px;min-width: 300px;">
+				<!-- facebook like code -->
+				<div style="display: flex;align-items: center;">
+					<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Bdsv8_6BLjw/" data-instgrm-version="8" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/Bdsv8_6BLjw/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank"></a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A post shared by <a href="https://www.instagram.com/puche.ga/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank"> लगता है पूछेगा</a> (@puche.ga) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2018-01-08T18:52:17+00:00">Jan 8, 2018 at 10:52am PST</time></p></div></blockquote>
+				</div>
+				<button onclick="share.instagram()" style="position: relative; top: -530px;left:-8px; float: right;" class="w3-button w3-circle w3-theme-d5 w3-xlarge"><i class="fas fa-times"></i></button>
+				<div class="insta-ticker w3-padding w3-theme" style="position: relative;top:-12px;">
+					Click follow button to see updates on instagram.
+				</div>
+			</div>
+		</div>
+
+
 	</body>
 	
 	<script>
@@ -78,6 +120,32 @@
 			}
 		}
 		rsz();
+		const share = {
+			facebook: function( o ) {
+				if( o ) document.querySelector("#fb-modal").style.display = "flex"; else location.hash = "";
+			},
+			instagram: function( o ) {
+				if( o ) document.querySelector("#insta-modal").style.display = "flex"; else location.hash = "";
+			},
+			email: function() {
+				
+			}
+		}
+		function hashChange( hash ) {
+			switch( location.hash ) {
+				case "#facebook" : share.facebook( true ); break;
+				case "#instagram" : share.instagram( true ); break;
+				default: console.log( "No mapping found for ", location.hash );
+					document.querySelectorAll(".w3-modal").forEach((e)=>{
+						e.style.display = "none";
+					});
+			}
+		}
+		window.onhashchange = function( ev ) {
+			ev.preventDefault();
+			hashChange( location.hash );
+		}
+		setTimeout(()=>hashChange( location.hash ), 1500 );
 	</script>
 
 </html>
