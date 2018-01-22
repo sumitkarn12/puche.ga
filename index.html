@@ -4,7 +4,7 @@
 		<title>puche.ga | board exam helper</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Preparing for board exam? We're here to help you" />
+		<meta name="description" content="We're teachers, but as a friend 😉. Free online sample paper for board exams." />
 
 		<link rel="alternate" href="https://puche.ga/" hreflang="x-default" />
 
@@ -14,9 +14,9 @@
 		<link rel="shortcut icon" href="/favicon.ico" />
 
 		<!-- og tags -->
-		<meta property="og:image" content="https://puche.ga/icons/icon-512x512.png"/>
+		<meta property="og:image" content="https://puche.ga/pablo.jpg"/>
 		<meta property="og:title" content="puche.ga | board exam helper"/>
-		<meta property="og:description" content="Preparing for board exam? We're here to help you"/>
+		<meta property="og:description" content="We're teachers, but as a friend 😉"/>
 		<meta property="og:site_name" content="puche.ga"/>
 		<meta property="og:type" content="website"/>
 		<meta property="og:url" content="https://puche.ga"/>
@@ -45,53 +45,41 @@
 		<link rel="stylesheet" href="/w3.css">
 		<link rel="stylesheet" href="/w3-theme-orange.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-		<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
-		<script defer src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.11"></script>
-		<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
-		<style>
-			body, h1, h5 {font-family: "Raleway", sans-serif}
-			body, html {height: 100%}
-			.pg-main a { text-decoration: none; color: #ffecd0; }
-			.pg-animate-top {
-				position:relative;
-				animation:pganimatetop 1s
-			}
-			@keyframes pganimatetop{from{top:-106px;opacity:0} to{top:-186px;opacity:1}}
-			.pg-animate-bottom { animation:pganimatebottom 1s; } @keyframes pganimatebottom{from{top:40%;} to{top:50%;}}
-			@keyframes pganimatebtn{from{left: 50px;} to{left:0;}}
-			.pg-animate-mail-btn { position: relative; animation-name: pganimatebtn; animation-delay: 0s; animation-duration: 1s; }
-			.pg-animate-facebook-btn { position: relative; animation-name: pganimatebtn; animation-delay: 0.2s; animation-duration: 1s; }
-			.pg-animate-instagram-btn { position: relative; animation-name: pganimatebtn; animation-delay: 0.4s; animation-duration: 1s; }
-		</style>
+		<link rel="stylesheet" href="/icomoon/style.css" />
 	</head>
 
 	<body>
 
-		<div class="w3-display-container w3-text-white" style="height: 100vh; overflow: hidden;">
-			<img class="bgimg" src="/cover.jpg" style="opacity: 0.5;" alt="">
-			<div class="w3-display-middle">
-				<img class="w3-circle w3-card-4 pg-animate-top" src="/logo.jpg" style="width: 120px;position:relative; top: -186px;">
-			</div>
-			<div class="pg-main pg-animate-bottom w3-display-middle w3-card-4 w3-padding w3-theme-l1 w3-round" style="min-width: 300px; max-width: 600px;">
+		<div class="pg-layout"></div>
+		
+		<div class="pg-center pg-logo-container">
+			<img class="w3-circle w3-card-4 pg-logo" src="/logo.jpg" style="visibility: hidden;">
+		</div>
+
+		<div class="pg-center">
+			<div class="pg-main w3-round w3-card-4 w3-padding w3-theme-l1" style="visibility: hidden;">
 				<p><a class="fb-btn" href="#facebook">PUCHE.GA</a> is for those student who want to prepare for board exam on their own.</p>
 				<p><a class="fb-btn" href="#facebook">PUCHE.GA</a> provides free sample papers, online test, quizzes and much more by it's facebook page.</p>
 				<p>If you're a student preparing for your exam, follow <a class="fb-btn" href="#facebook">PUCHE.GA on Facebook</a>.</p>
 				<p>And don't hesitate to ask any doubt if you have. You can ask it by any mean. Links given on the top.</p>
 			</div>
-			<div class="w3-display-bottomright w3-xlarge w3-margin">
-				<a href="mailto:sdhananjay9@gmail.com?Subject=I%20have%20a%20question" class="w3-button w3-theme-d2 w3-circle w3-card pg-animate-mail-btn"><i class="fas fa-envelope-square"></i></a>
-				<a href="#facebook" class="w3-button w3-theme-d4 w3-circle w3-card pg-animate-facebook-btn"><i class="fab fa-facebook"></i></a>
-				<a href="#instagram" class="w3-button w3-theme-d5 w3-circle w3-card  pg-animate-instagram-btn"><i class="fab fa-instagram"></i></a>
+		</div>
+
+		<div class="pg-center">
+			<div class="pg-social-btns w3-xlarge">
+				<a href="#email" class="w3-button w3-theme-l3 w3-circle w3-card pg-animate-mail-btn"><span class="icon-brand2"></span></a>
+				<a href="#facebook" class="w3-button w3-theme-l3 w3-circle w3-card pg-animate-facebook-btn w3-margin"><span class="icon-brand"></span></a>
+				<a href="#instagram" class="w3-button w3-theme-l3 w3-circle w3-card  pg-animate-instagram-btn"><span class="icon-brand3"></span></i></a>
 			</div>
 		</div>
 
+
 		<div class="w3-modal" id="fb-modal" style="display: none; justify-content: center; align-items: center;padding: 0;">
-			<div class="w3-modal-content w3-animate-zoom w3-card-4" style="max-width: 300px; height: 300px;min-width: 300px;">
+			<div class="w3-modal-content pg-modal w3-round w3-card-4" style="height: 404px;">
 				<!-- facebook like code -->
 				<div style="display: flex;align-items: center;">
 					<div class="fb-page" data-href="http://www.facebook.com/puche.ga/" data-tabs="messages" data-height="300" data-width="300" data-small-header="false" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/puche.ga/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/puche.ga/">Puche Ga</a></blockquote></div>
 				</div>
-				<button onclick="share.facebook()" style="position: relative; top: -362px;left:-8px; float: right;" class="w3-button w3-circle w3-card-4 w3-theme-d5 w3-xlarge"><i class="fas fa-times"></i></button>
 				<div class="fb-ticker w3-padding w3-theme">
 					Click like button to like us on facebook. You can also send your questions or messages by writing in the box.
 				</div>
@@ -99,19 +87,39 @@
 		</div>
 
 		<div class="w3-modal" id="insta-modal" style="display: none; justify-content: center; align-items: center;padding: 0;">
-			<div class="w3-modal-content w3-animate-zoom w3-card-4" style="max-width: 300px; height: 422px;min-width: 300px;">
+			<div class="w3-modal-content w3-round w3-card-4 pg-modal" style="height: 390px;">
 				<!-- instagram follow code -->
 				<div style="display: flex;align-items: center;">
 					<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Bdsv8_6BLjw/" data-instgrm-version="8" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/Bdsv8_6BLjw/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank"></a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A post shared by <a href="https://www.instagram.com/puche.ga/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank"> लगता है पूछेगा</a> (@puche.ga) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2018-01-08T18:52:17+00:00">Jan 8, 2018 at 10:52am PST</time></p></div></blockquote>
 				</div>
-				<button onclick="share.instagram()" style="position: relative; top: -432px;left:-8px; float: right;" class="w3-button w3-circle w3-theme-d5 w3-xlarge"><i class="fas fa-times"></i></button>
-				<div class="insta-ticker w3-padding w3-theme" style="position: relative;top:-12px;">
-					Click follow button to see updates on instagram.
-				</div>
+				<a target="_blank" href="https://www.instagram.com/_u/puche.ga" class="w3-theme w3-button" style="position: absolute;bottom: 0px; width: 100%;">Open in App</a> to open in App.
 			</div>
 		</div>
 
-
+		<div class="w3-modal" id="email-modal" style="display: none; justify-content: center; align-items: center;padding: 0;">
+			<div class="w3-modal-content w3-round w3-card-4 pg-modal w3-theme-l3">
+				<div class="pg-admin">
+					<img src="https://instagram.fdel8-1.fna.fbcdn.net/t51.2885-19/s150x150/24327975_215854748956965_2978562465475854336_n.jpg" alt="" style="width: 100px;" />
+					<div class="pg-content w3-theme-l5">
+						<div class="pg-info">
+							<div>Shiv Dhananjay Rajput</div>
+							<div class="w3-small">sdhananjay9@gmail.com</div>
+						</div>
+						<a href="mailto:sdhananjay9@gmail.com" class="pg-btn w3-button w3-theme w3-tiny" style="width: 100%;">Email me</a>
+					</div>
+				</div>
+				<div class="pg-admin w3-theme-l5">
+					<img src="https://instagram.fdel8-1.fna.fbcdn.net/t51.2885-19/s150x150/24124832_376383986134432_7998517251743416320_n.jpg" alt="" style="width: 100px;" />
+					<div class="pg-content">
+						<div class="pg-info">
+							<div>Sumit Karn</div>
+							<div class="w3-small">sumitkarn123@yahoo.com</div>
+						</div>
+						<a href="mailto:sumitkarn123@yahoo.com" class="pg-btn w3-button w3-theme w3-tiny" style="width: 100%;">Email me</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 	
 	<script>
@@ -127,39 +135,33 @@
 			});
 		}
 
-		let img = document.querySelector( ".bgimg" );
-		window.addEventListener("resize",  rsz);
-		function rsz() {
-			let winH = window.innerHeight;
-			let winW = window.innerWidth;
-			if( winH < winW ) {
-				img.style.width = "100%";
-				img.style.height = "auto";
-			} else {
-				img.style.width = "auto";
-				img.style.height = "100%";
-			}
-		}
-		rsz();
+		document.querySelectorAll(".w3-modal").forEach(( e )=>{
+			e.addEventListener("click", (ev)=>{
+				if( ev.target.classList.contains('w3-modal') ) {
+					ev.preventDefault();
+					location.hash = "";
+				}
+			});
+		});
+
 		const share = {
 			facebook: function( o ) {
-				if( o ) document.querySelector("#fb-modal").style.display = "flex"; else location.hash = "";
+				modal.open( document.querySelector("#fb-modal") );
 			},
 			instagram: function( o ) {
-				if( o ) document.querySelector("#insta-modal").style.display = "flex"; else location.hash = "";
+				modal.open(document.querySelector("#insta-modal"));
 			},
-			email: function() {
-				
+			email: function( o ) {
+				modal.open(document.querySelector("#email-modal"));
 			}
 		}
 		function hashChange( hash ) {
 			switch( location.hash ) {
 				case "#facebook" : share.facebook( true ); break;
 				case "#instagram" : share.instagram( true ); break;
+				case "#email" : share.email( true ); break;
 				default: console.log( "No mapping found for ", location.hash );
-					document.querySelectorAll(".w3-modal").forEach((e)=>{
-						e.style.display = "none";
-					});
+					modal.close();
 			}
 		}
 		window.onhashchange = function( ev ) {
@@ -167,7 +169,76 @@
 			hashChange( location.hash );
 		}
 		setTimeout(()=>hashChange( location.hash ), 1500 );
+		let anim = {
+			logo : function() {
+				let logo = document.querySelector(".pg-logo");
+				return new Promise(( resolve )=>{
+					logo.addEventListener("animationstart", ()=> logo.style.visibility = "visible" );
+					logo.addEventListener("animationend", ()=>{
+						logo.style.top = "-180px"
+						resolve();
+					});
+					logo.style.animation = "pganimatelogo 1s ease-out";
+				});
+			},
+			content: function() {
+				let content = document.querySelector(".pg-main");
+				return new Promise(( resolve, reject )=>{
+					content.addEventListener("animationstart", ()=> content.style.visibility = "visible" );
+					content.addEventListener("animationend", resolve );
+					content.style.animation = "pganimatemainin 3s cubic-bezier(0.18, 0.68, 0.25, 0.97)";
+				});
+			},
+			btns: async function() {
+				let btns = document.querySelectorAll(".pg-social-btns>.w3-button");
+				for(const btn of btns)
+					await anim.btn( btn );
+			},
+			btn: function( b ) {
+				return new Promise(( resolve )=>{
+					b.addEventListener("animationstart", ()=>b.style.visibility = "visible" );
+					b.addEventListener("animationend", resolve );
+					b.style.animation = "pganimatebtn 0.5s cubic-bezier(0.48, 0.9, 0.76, 1.14)";
+				});
+			},
+			play: function() {
+				anim.content().then(()=>{
+					return anim.logo();
+				}).then(()=>{
+					anim.btns();
+				});
+			}
+		}
+		document.querySelectorAll(".pg-social-btns>.w3-button").forEach((n)=> n.style.visibility = "hidden" );
+		const modal = {
+			opened: null,
+			open: function( el ) {
+				this.opened = el;
+				this.opened.classList.remove("pg-modal-out");
+				this.opened.classList.add("pg-modal-in");
+				this.opened.style.display = "flex";
+			},
+			close: function() {
+				if( this.opened ) {
+					this.opened.classList.remove("pg-modal-in");
+					this.opened.classList.add("pg-modal-out");
+				} else {
+					console.log( "Currently no modal opened" );
+				}
+			}
+		}
+		document.querySelectorAll(".w3-modal").forEach(el=>{
+			el.addEventListener( "animationend", (e)=>{
+				if( e.target.classList.contains('pg-modal-out') ) {
+					e.target.style.display = "none";
+				}
+			});
+		});
+		anim.play();
 	</script>
+
+	<script src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.11"></script>
+	<script src="//platform.instagram.com/en_US/embeds.js"></script>
 
 </html>
 

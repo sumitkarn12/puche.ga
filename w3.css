@@ -229,3 +229,29 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-border-dark-grey,.w3-hover-border-dark-grey:hover,.w3-border-dark-gray,.w3-hover-border-dark-gray:hover{border-color:#616161!important}
 .w3-border-pale-red,.w3-hover-border-pale-red:hover{border-color:#ffe7e7!important}.w3-border-pale-green,.w3-hover-border-pale-green:hover{border-color:#e7ffe7!important}
 .w3-border-pale-yellow,.w3-hover-border-pale-yellow:hover{border-color:#ffffcc!important}.w3-border-pale-blue,.w3-hover-border-pale-blue:hover{border-color:#e7ffff!important}
+
+/*custom css*/
+body, h1, h5 {font-family: "Raleway", sans-serif}
+body, html { height: 100%; background-color: #ff9800; background-image: url(/cover.jpg); background-repeat: no-repeat; background-position: center; background-attachment: fixed; background-size: cover; overflow-y: hidden;}
+.pg-center { display: flex; justify-content: center; align-items: center; position: absolute; top: 0; left: 0; height: 100vh; width: 100%;}
+.pg-main { width: 300px; }
+.pg-main a { text-decoration: none; color: #ffecd0; }
+.pg-layout {position: fixed;top: 0;left: 0; width: 100%; height: 100vh; background: #ff9800; opacity: 0.8; }
+.pg-logo { position: relative; }
+.pg-social-btns>.w3-button { position: relative; top: 203px; }
+.pg-animate-top { position:relative; animation:pganimatetop 1s }
+.pg-animate-bottom { animation:pganimatebottom 1s; } @keyframes pganimatebottom{from{top:40%;} to{top:50%;}}
+.pg-modal { min-width: 300px; max-width: 300px; overflow-y: hidden; }
+.pg-modal-in { animation: pganimatemainin 0.5s ease-out; }
+.pg-modal-out { animation: pganimatemainout 0.5s cubic-bezier(0, -1.41, 1, 2.69); }
+@keyframes pganimatelogo{from{top: -160px;} to{top: -180px;}}
+@keyframes pganimatebtn{from{top: 253px; opacity: 0;} to{top: 203px; opacity: 1;}}
+@keyframes pganimatemainin{from{transform: scale(1.1,1.1); opacity: 0;} to{transform: scale(1,1); opacity: 1;}}
+@keyframes pganimatemainout{from{transform: scale(1,1); opacity: 1;} to{transform: scale(1.1,1.1); opacity: 0;}}
+
+
+.pg-admin { height:100px; }
+.pg-admin img { position: absolute;left: 0; width: 100px; }
+.pg-admin .pg-content { position: absolute;right: 0; width: 200px; height: 100px; }
+.pg-admin .pg-info { padding: 4px 8px; }
+.pg-admin .pg-btn { position: absolute;bottom: 0; width: 100%; }

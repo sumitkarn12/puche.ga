@@ -2,7 +2,7 @@
     "name": "puche.ga | board exam helper",
     "short_name": "puche.ga",
     "orientation": "portrait",
-    "description": "Preparing for board exam? We're here to help you",
+    "description": "We're teachers, but as a friend 😉. Preparing for board exam? We're here to help you",
     "display": "standalone",
     "start_url": "/index.html?launcher=true",
     "theme_color": "#ff9800",
