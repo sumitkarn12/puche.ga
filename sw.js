@@ -28,8 +28,9 @@ const CACHE_FILES = [
 	"icomoon/fonts/icomoon.woff",
 	"icomoon/selection.json",
 	"icomoon/style.css",
-	"https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.11",
-	"https://platform.instagram.com/en_US/embeds.js",
+	// No-Acesss-Control-Origin presesnt in both link
+	// "https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.11",
+	// "https://platform.instagram.com/en_US/embeds.js",
 	"https://instagram.fdel8-1.fna.fbcdn.net/t51.2885-19/s150x150/24327975_215854748956965_2978562465475854336_n.jpg",
 	"https://instagram.fdel8-1.fna.fbcdn.net/t51.2885-19/s150x150/24124832_376383986134432_7998517251743416320_n.jpg"
 ];
