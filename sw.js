@@ -1,7 +1,7 @@
 
 // Sat Jan 13 16:02:56 2018
 
-const CACHE_VERSION = "v1.2.2";
+const CACHE_VERSION = "v1.3";
 const CACHE_FILES = [
 	"/",
 	"/?launcher=true",
@@ -15,13 +15,23 @@ const CACHE_FILES = [
 	"/icons/icon-192x192.png",
 	"/icons/icon-384x384.png",
 	"/icons/icon-512x512.png",
+	"/pablo.jpg",
 	"/favicon.ico",
 	"/logo.jpg",
 	"/cover.jpg",
 	"/w3.css",
 	"/w3-theme-orange.css",
-	"https://use.fontawesome.com/releases/v5.0.4/js/all.js",
-	"/manifest.json"
+	"/manifest.json",
+	"icomoon/fonts/icomoon.eot",
+	"icomoon/fonts/icomoon.svg",
+	"icomoon/fonts/icomoon.ttf",
+	"icomoon/fonts/icomoon.woff",
+	"icomoon/selection.json",
+	"icomoon/style.css",
+	"https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.11",
+	"https://platform.instagram.com/en_US/embeds.js",
+	"https://instagram.fdel8-1.fna.fbcdn.net/t51.2885-19/s150x150/24327975_215854748956965_2978562465475854336_n.jpg",
+	"https://instagram.fdel8-1.fna.fbcdn.net/t51.2885-19/s150x150/24124832_376383986134432_7998517251743416320_n.jpg"
 ];
 
 self.addEventListener( "install", function(event) {
